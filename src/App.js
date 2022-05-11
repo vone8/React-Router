@@ -4,6 +4,12 @@ import Home from "./components/Home/Home";
 import Sidebar from "./components/Sidebar/Sidebar";
 import OrderSummery from "./components/OrderSummery/OrderSummery";
 import NoMatchUrl from "./components/NoMatchUrl/NoMatchUrl";
+import Products from "./components/Products/Products";
+import FeaturedProduct from "./components/FeaturedProduct/FeaturedProduct";
+import NewProduct from "./components/NewProduct/NewProduct";
+import Users from "./components/Users/Users";
+import UserDetails from "./components/UserDetails/UserDetails";
+import Admin from "./components/Admin/Admin";
 function App() {
 	return (
 		<div className="App">
@@ -12,6 +18,15 @@ function App() {
 				<Route path="/" element={<Home />}></Route>
 				<Route path="about" element={<About />}></Route>
 				<Route path="order-summery" element={<OrderSummery />}></Route>
+				<Route path="products" element={<Products />}>
+					<Route index element={<About />}></Route>
+					<Route path="featured" element={<FeaturedProduct />}></Route>
+					<Route path="new" element={<NewProduct />}></Route>
+				</Route>
+				<Route path="users" element={<Users />}>
+					<Route path=":userId" element={<UserDetails />}></Route>
+					<Route path="admin" element={<Admin />}></Route>
+				</Route>
 				<Route path="*" element={<NoMatchUrl />}></Route>
 			</Routes>
 		</div>

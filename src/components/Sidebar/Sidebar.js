@@ -19,6 +19,9 @@ function Sidebar() {
 				<NavLink style={navLinkStyle} to="/about">
 					About Using NavLink
 				</NavLink>
+				<NavLink to="/products">Products</NavLink>
+				<NavLink to="users">Users</NavLink>
+				<NavLink to="users/admin">Admin</NavLink>
 			</div>
 		</nav>
 	);
