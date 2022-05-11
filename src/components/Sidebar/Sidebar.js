@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import Login from "../Login/Login";
+import { useAuth } from "../Auth/Auth";
 function Sidebar() {
 	const navLinkStyle = ({ isActive }) => {
 		return {
@@ -8,6 +9,9 @@ function Sidebar() {
 			color: isActive ? "darkred" : "#000",
 		};
 	};
+
+	const auth = useAuth();
+
 	return (
 		<nav>
 			<div>
@@ -22,6 +26,8 @@ function Sidebar() {
 				<NavLink to="/products">Products</NavLink>
 				<NavLink to="users">Users</NavLink>
 				<NavLink to="users/admin">Admin</NavLink>
+				<NavLink to="/profile">Profile</NavLink>
+				{!auth.user && <NavLink to="/Login">Login</NavLink>}
 			</div>
 		</nav>
 	);
